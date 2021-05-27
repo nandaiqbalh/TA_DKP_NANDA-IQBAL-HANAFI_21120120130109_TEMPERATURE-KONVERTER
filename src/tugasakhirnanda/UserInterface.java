@@ -5,6 +5,8 @@
  */
 package tugasakhirnanda;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DELL
@@ -123,8 +125,33 @@ public class UserInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_awalTFActionPerformed
 
+    // method untuk exception (inputan harus angka
+    public void ConvertSuhu() throws InputHarusAngkaException{
+        double suhuDouble;
+        String inputan = awalTF.getText();
+        inputan = inputan.trim(); 
+        
+        try
+        {
+            suhuDouble = Double.parseDouble(inputan);
+        }
+        catch(NumberFormatException e)
+        {
+            throw new InputHarusAngkaException();
+        }
+    }
+    
     private void convertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertButtonActionPerformed
         // TODO add your handling code here:
+       
+        // memanggil try catch untuk menampilkan jOptionPane
+        try {
+            this.ConvertSuhu();
+        } catch (InputHarusAngkaException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+        // OPERASI PERHITUNGAN KONVERSI
         String box1 = (String)awalCB.getSelectedItem();
         String box2 = (String)akhirCB.getSelectedItem();
         
