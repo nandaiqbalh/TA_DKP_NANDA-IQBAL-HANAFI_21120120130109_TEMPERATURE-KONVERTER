@@ -125,7 +125,7 @@ public class UserInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_awalTFActionPerformed
 
-    // method untuk exception (inputan harus angka
+    // method untuk exception (inputan harus angka)
     public void ConvertSuhu() throws InputHarusAngkaException{
         double suhuDouble;
         String inputan = awalTF.getText();
